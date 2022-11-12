@@ -2,25 +2,212 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.it.ChampionsLeague.FXMLController">
+<BorderPane prefHeight="790.0" prefWidth="1540.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.it.ChampionsLeague.FXMLController">
+   <top>
+      <ImageView fx:id="logo" fitHeight="90.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </top>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox BorderPane.alignment="CENTER">
          <children>
-              <Button fx:id="button" onAction="#handleButtonAction" text="Click Me!" />
-              <Label fx:id="label" minHeight="16" minWidth="69">
+            <VBox>
+               <children>
+                  <HBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Button fx:id="btnCreaGirone" alignment="CENTER" mnemonicParsing="false" onAction="#handleCreaGirone" text="Crea Girone">
+                                       <HBox.margin>
+                                          <Insets bottom="2.0" right="10.0" top="2.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="btnSimulaGirone" mnemonicParsing="false" onAction="#handleSimulaGirone" text="Simula Girone">
+                                       <HBox.margin>
+                                          <Insets bottom="2.0" left="10.0" right="10.0" top="2.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <ComboBox fx:id="cmbGiornate" onAction="#handleMostraPartite" prefWidth="200.0" />
+                                    <ComboBox fx:id="boxSquadraGirone" onAction="#handlePartiteSquadraGirone" prefWidth="200.0" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                              <TableView fx:id="tblGirone">
+                                <columns>
+                                  <TableColumn fx:id="clGiornata" prefWidth="93.59997022151947" text="Giornata" />
+                                  <TableColumn fx:id="clCasaGirone" prefWidth="130.0" text="Casa" />
+                                    <TableColumn fx:id="clRisultatoGirone" prefWidth="97.60003662109375" text="Risultato" />
+                                    <TableColumn fx:id="clOspite" prefWidth="130.0" text="Ospite" />
+                                </columns>
+                              </TableView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Button fx:id="btnEliminazioneDiretta" mnemonicParsing="false" onAction="#handleEliminazioneDiretta" text="Simula fase eliminazione diretta" />
+                              <HBox spacing="20.0">
+                                 <children>
+                                    <ComboBox fx:id="cmbTurno" onAction="#handleScegliTurno" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ComboBox>
+                                    <ComboBox fx:id="boxSquadraED" onAction="#handlePartiteSquadraED" prefWidth="200.0" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                              <TableView fx:id="tblFaseEliminazioneDiretta" prefHeight="275.0" prefWidth="613.0">
+                                <columns>
+                                  <TableColumn fx:id="clAndataRitorno" prefWidth="35.0" text="A/R" />
+                                    <TableColumn fx:id="clTurno" prefWidth="75.0" text="Turno" />
+                                  <TableColumn fx:id="clCasaED" prefWidth="125.0" text="Casa" />
+                                    <TableColumn fx:id="clRisultatoED" prefWidth="69.5999755859375" text="Risultato" />
+                                    <TableColumn fx:id="clOspiteED" prefWidth="125.0" text="Ospite" />
+                                    <TableColumn fx:id="clTotaleED" prefWidth="59.20001220703125" text="Totale" />
+                                    <TableColumn fx:id="clSuperaTurno" prefWidth="130.0" text="Supera turno" />
+                                </columns>
+                              </TableView>
+                           </children>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <VBox>
+                           <children>
+                              <Button fx:id="btnGuadagni" mnemonicParsing="false" onAction="#handleGuadagni" text="Mostra guadagni">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ComboBox fx:id="cmbSquadraGuadagni" onAction="#handleGuadagniSquadra" prefWidth="150.0">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <TableView fx:id="tblGuadagni" prefWidth="600.0">
+                                <columns>
+                                  <TableColumn fx:id="clSquadra" minWidth="-1.0" prefWidth="130.0" text="Squadra" />
+                                  <TableColumn fx:id="clRankingStorico" prefWidth="99.20000457763672" text="Ranking Storico" />
+                                    <TableColumn fx:id="clMarketPool" minWidth="0.0" prefWidth="77.5999755859375" text="Market Pool" />
+                                    <TableColumn fx:id="clFaseGironi" minWidth="0.0" prefWidth="61.5999755859375" text="Girone" />
+                                    <TableColumn fx:id="clEliminatoria" prefWidth="86.39990234375" text="Eliminatoria" />
+                                    <TableColumn fx:id="clBiglietti" prefWidth="63.20001220703125" text="Biglietti" />
+                                    <TableColumn fx:id="clTotale" prefWidth="79.20001220703125" text="Totale" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Button fx:id="btnInfoStadio" mnemonicParsing="false" onAction="#handleInfoStadio" text="Info Stadio">
+                                 <VBox.margin>
+                                    <Insets bottom="2.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <ComboBox fx:id="cmbStadio" onAction="#handleStatStadio" prefWidth="200.0">
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <TableView fx:id="tblInfoStadio" prefHeight="302.0" prefWidth="475.0">
+                                <columns>
+                                  <TableColumn fx:id="clNomeStadio" prefWidth="98.4000244140625" text="Nome Stadio" />
+                                    <TableColumn fx:id="clPartiteGiocate" prefWidth="75.0" text="Partite" />
+                                  <TableColumn fx:id="clTotBiglietti" prefWidth="95.199951171875" text="Tot Biglietti" />
+                                    <TableColumn fx:id="clTotIncasso" prefWidth="86.4000244140625" text="Tot incasso" />
+                                    <TableColumn fx:id="clPercentuale" prefWidth="117.60002441406249" text="\% Capienza" />
+                                </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" top="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
                <HBox.margin>
-                  <Insets left="10.0" />
+                  <Insets right="20.0" />
                </HBox.margin>
-            </Label>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0">
+               <children>
+                  <Label text="Classifica">
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="tblClassifica" prefHeight="470.0">
+                    <columns>
+                        <TableColumn fx:id="clPosizioneClassifica" prefWidth="40.0" sortable="false" text="Pos" />
+                      <TableColumn fx:id="clSqClass" prefWidth="130.0" sortable="false" text="Squadra" />
+                      <TableColumn fx:id="clPunti" prefWidth="40.0" sortable="false" text="Pti" />
+                        <TableColumn fx:id="clGF" prefWidth="40.0" text="GF" />
+                        <TableColumn fx:id="clGS" prefWidth="40.0" text="GS" />
+                        <TableColumn fx:id="clDR" prefWidth="40.0" text="DR" />
+                    </columns>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </TableView>
+                  <Label fx:id="labelVincitore" text="La squadra vincitrice è:" visible="false">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <ImageView fx:id="imgVincitore" fitHeight="169.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </VBox>
          </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </padding>
       </HBox>
    </center>
 </BorderPane>

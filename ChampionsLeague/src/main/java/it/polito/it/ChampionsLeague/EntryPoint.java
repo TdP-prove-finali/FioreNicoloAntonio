@@ -22,7 +22,7 @@ public class EntryPoint extends Application {
         FXMLController controller = loader.getController();
         controller.setModel(model);
         
-        stage.setTitle("2022-06-29-B");
+        stage.setTitle("");
         stage.setScene(scene);
         stage.show();
     }
