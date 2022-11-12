@@ -8,12 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
-import java.util.Timer;
-
-import org.jgrapht.Graph;
-import org.jgrapht.Graphs;
-import org.jgrapht.graph.DefaultEdge;
-import org.jgrapht.graph.SimpleGraph;
 
 import it.polito.tdp.ChampionsLeague.db.ChampionsLeagueDao;
 
@@ -30,7 +24,7 @@ public class Model {
 	private List<Squadra> terzaFasciaCasa;
 	private List<Squadra> quartaFasciaCasa;
 	
-	int tentativi;
+	
 	
 	private boolean guadagniInizialiCalcolati;
 	
@@ -239,7 +233,6 @@ public class Model {
 	}
 	
 	public void initiGiornate() {
-		tentativi++;
 		guadagniInizialiCalcolati=false;
 		this.riempiListe();
 		parziale=new ArrayList<>();

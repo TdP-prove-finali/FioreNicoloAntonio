@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import it.polito.tdp.ChampionsLeague.model.ComparatoreSquadreOrdineAlfabetico;
 import it.polito.tdp.ChampionsLeague.model.Giornata;
 import it.polito.tdp.ChampionsLeague.model.Model;
 import it.polito.tdp.ChampionsLeague.model.PartitaEliminazioneDiretta;
@@ -21,7 +22,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -241,6 +241,7 @@ public class FXMLController {
         btnGuadagni.setDisable(false);
         btnInfoStadio.setDisable(false);
       List<Squadra> squadreED=model.getSquadreAgliOttavi();
+      Collections.sort(squadreED,new ComparatoreSquadreOrdineAlfabetico());
       squadreED.addAll(model.getSquadreAiPlayOff());
       boxSquadraED.getItems().addAll(squadreED);
        File f2 = new File("Immagini/"+model.getVincitrice().getNome()+".png");

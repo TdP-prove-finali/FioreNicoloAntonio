@@ -24,7 +24,7 @@ public class TestModel {
         	System.out.println(s.getNome()+" "+s.getCountPartite()+"\n");
         }*/
 		double tempo=(end-start)/1000000000;
-		System.out.println("Ci sono voluti secondi"+tempo+" e tentativi : "+model.tentativi);
+		System.out.println("Ci sono voluti secondi"+tempo);
        /* for(Giornata g: model.getGiornate().values()) {
         	System.out.println("Giornata : "+g.toString()+"\n");
         	for(PartitaGirone pg: g.getPartite())

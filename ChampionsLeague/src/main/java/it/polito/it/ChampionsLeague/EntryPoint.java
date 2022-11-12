@@ -1,7 +1,6 @@
 package it.polito.it.ChampionsLeague;
 
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 
 import it.polito.tdp.ChampionsLeague.model.Model;
 import javafx.fxml.FXMLLoader;

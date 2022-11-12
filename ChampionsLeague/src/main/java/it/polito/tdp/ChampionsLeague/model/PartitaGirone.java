@@ -1,9 +1,7 @@
 package it.polito.tdp.ChampionsLeague.model;
 
-import java.io.File;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
 
 public class PartitaGirone extends Partita {
 	private Giornata giornata;
@@ -16,9 +14,7 @@ public class PartitaGirone extends Partita {
 	private int golTrasferta;
 	private String nomeSquadraCasa;
 	private String nomeSquadraOspite;
-	private Integer idGiornata;
-	private ImageView imgCasa;
-	private ImageView imgOspite;	
+	private Integer idGiornata;	
 	public PartitaGirone(Squadra casa, Squadra trasferta,Giornata giornata) {
 		super(casa, trasferta);
 		this.casa=casa;
@@ -50,10 +46,6 @@ public class PartitaGirone extends Partita {
 		return nomeSquadraOspite;
 	}
 	
-
-	public ImageView getImgCasa() {
-		return imgCasa;
-	}
 
 	public Giornata getGiornata() {
 		return giornata;

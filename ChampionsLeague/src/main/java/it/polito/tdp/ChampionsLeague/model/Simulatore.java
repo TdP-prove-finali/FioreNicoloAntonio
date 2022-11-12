@@ -122,8 +122,6 @@ public class Simulatore {
     	}
 		Squadra s1=p.getCasa();
 		Squadra s2=p.getTrasferta();
-		String res="Finale :";
-		String res1="";
 		p.setGolCasa(p.getGolSupplementariCasa());
 		p.setGolTrasferta(p.getGolSupplementariTrasferta());
 		p.setGolSupplementariCasa(-p.getGolSupplementariCasa());
@@ -166,8 +164,6 @@ public class Simulatore {
 				}
 				
 			}
-		risultatoFinale=res;
-		risultatiPartite.add(res);
 		return null;
 	}
     public void calcolaRisultati() {
@@ -215,10 +211,6 @@ public class Simulatore {
 						if(!vincitrici.contains(s2)) {
 							vincitrici.add(s2);
 						s2.setGuadagni(guadagno, turno);
-						res1="\nAndata :"+s1.getNome()+" "+p.getGolCasa()+" - "+p.getGolTrasferta()+" "+s2.getNome()+
-								"\nRitorno : "+s2.getNome()+" "+pp.getGolCasa()+" - "+pp.getGolTrasferta()+" "+s1.getNome()+
-								"\nTotale : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa())+" "+s2.getNome();
-						res+=res1;
 						pp.setRisultatoComplessivo((p.getGolTrasferta()+pp.getGolCasa())+" - "+(p.getGolCasa()+pp.getGolTrasferta()));
 						pp.setSquadraVincente(s2.getNome());
 						}
@@ -229,11 +221,7 @@ public class Simulatore {
 						if(pp.getGolSupplementariCasa()>pp.getGolSupplementariTrasferta()) {
 								vincitrici.add(s2);
 								s1.setGuadagni(guadagno, turno);
-								res1="\nAndata :"+s1.getNome()+" "+p.getGolCasa()+" - "+p.getGolTrasferta()+" "+s2.getNome()+
-										"\nRitorno : "+s2.getNome()+" "+pp.getGolCasa()+" - "+pp.getGolTrasferta()+" "+s1.getNome()+
-										"\nTotale : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa())+" "+s2.getNome()+
-										"\nSupplementari : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariCasa())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariTrasferta())+" "+s2.getNome();
-								res+=res1;
+								
 								pp.setRisultatoComplessivo((p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa())+" - "+(p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta()));
 								pp.setSquadraVincente(s2.getNome());
 								
@@ -241,11 +229,7 @@ public class Simulatore {
 						if(pp.getGolSupplementariCasa()<pp.getGolSupplementariTrasferta()) {
 								vincitrici.add(s1);
 								s2.setGuadagni(guadagno, turno);
-								res1="\nAndata :"+s1.getNome()+" "+p.getGolCasa()+" - "+p.getGolTrasferta()+" "+s2.getNome()+
-										"\nRitorno : "+s2.getNome()+" "+pp.getGolCasa()+" - "+pp.getGolTrasferta()+" "+s1.getNome()+
-										"\nTotale : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa())+" "+s2.getNome()+
-										"\nSupplementari : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta()+p.getGolSupplementariCasa())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+p.getGolSupplementariTrasferta())+" "+s2.getNome();
-								res+=res1;
+								
 								//pp.setRisultatoComplessivo((p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa())+"DTS");
 								pp.setRisultatoComplessivo((p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa())+" - "+(p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta()));
 								pp.setSquadraVincente(s1.getNome());
@@ -257,12 +241,7 @@ public class Simulatore {
 								if(!vincitrici.contains(s2)) {
 									vincitrici.add(s2);
 									s1.setGuadagni(guadagno, turno);
-									res1="\nAndata :"+s1.getNome()+" "+p.getGolCasa()+" - "+p.getGolTrasferta()+" "+s2.getNome()+
-											"\nRitorno : "+s2.getNome()+" "+pp.getGolCasa()+" - "+pp.getGolTrasferta()+" "+s1.getNome()+
-											"\nTotale : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa())+" "+s2.getNome()+
-											"\nSupplementari : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta()+p.getGolSupplementariCasa())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+p.getGolSupplementariTrasferta())+" "+s2.getNome()+
-											"\nLa squadra "+s1.getNome()+" vince ai rigori "+p.getRigoriCasa()+" - "+p.getRigoriTrasferta();
-									res+=res1;
+									
 									pp.setRisultatoComplessivo((p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa()+pp.getRigoriCasa())+" - "+(p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta()+pp.getRigoriTrasferta()));
 									pp.setSquadraVincente(s2.getNome());
 								}
@@ -271,12 +250,7 @@ public class Simulatore {
 								if(!vincitrici.contains(s1)) {
 									vincitrici.add(s1);
 									s2.setGuadagni(guadagno, turno);
-									res1="\nAndata :"+s1.getNome()+" "+p.getGolCasa()+" - "+p.getGolTrasferta()+" "+s2.getNome()+
-											"\nRitorno : "+s2.getNome()+" "+pp.getGolCasa()+" - "+pp.getGolTrasferta()+" "+s1.getNome()+
-											"\nTotale : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa())+" "+s2.getNome()+
-											"\nSupplementari : "+s1.getNome()+" "+(p.getGolCasa()+pp.getGolTrasferta()+p.getGolSupplementariCasa())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+p.getGolSupplementariTrasferta())+" "+s2.getNome()+
-											"\nLa squadra "+s2.getNome()+" vince ai rigori "+p.getRigoriTrasferta()+" - "+p.getRigoriCasa();
-									res+=res1;
+									
 									//pp.setRisultatoComplessivo((p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta()+pp.getRigoriTrasferta())+" - "+(p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa()+pp.getRigoriCasa())+"DCR");
 									pp.setRisultatoComplessivo((p.getGolTrasferta()+pp.getGolCasa()+pp.getGolSupplementariCasa()+pp.getRigoriCasa())+" - "+(p.getGolCasa()+pp.getGolTrasferta()+pp.getGolSupplementariTrasferta()+pp.getRigoriTrasferta()));
 									pp.setSquadraVincente(s1.getNome());
